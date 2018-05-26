@@ -1,0 +1,39 @@
+﻿@using DataAccess.Entities
+@{
+    ViewBag.Title = $"List of operations by {User.CardId}";
+}
+<h2>@ViewBag.Title</h2>
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Time</th>
+                <th>Amount</th>
+                <th>Balance after</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var operation  in (ViewData["operations"] as List<OperationModel>))
+            {
+                <tr>
+                    <td>@operation.OperationTime</td>
+                    <td>
+                            @if (operation.InId == User.CardId)
+                        {
+                            <span class="text-success">+@operation.Amount</span>
+                        }
+                        else
+                        {
+                            <span class="text-danger">-@operation.Amount</span>                            
+                        }
+                    </td>
+                    <td>
+                        @(operation.InId == User.CardId ? operation.InBalanceAfter : operation.OutBalanceAfter)
+                    </td>
+                </tr>
+            }
+            </tbody>          
+        </table>
+    </div>
+</div>
