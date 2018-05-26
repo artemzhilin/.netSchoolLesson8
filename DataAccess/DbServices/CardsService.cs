@@ -7,7 +7,7 @@ namespace DataAccess.DbServices
     {
         public static bool CardExists(string cardNumber)
         {
-            var cardExists = false;
+            bool cardExists;
             using (var dbContext = new BankContext())
             {
                 cardExists = dbContext.Cards.Any(c => c.CardId == cardNumber);                
@@ -17,7 +17,7 @@ namespace DataAccess.DbServices
 
         public static bool CardExists(string cardNumber, string pinCode)
         {
-            var cardExists = false;
+            bool cardExists;
             using (var dbContext = new BankContext())
             {
                 cardExists = dbContext.Cards.Any(c => c.CardId == cardNumber && c.PinCode == pinCode);                

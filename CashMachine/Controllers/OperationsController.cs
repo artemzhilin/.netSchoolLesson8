@@ -24,6 +24,7 @@ namespace CashMachine.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Withdraw(WithdrawViewModel withdrawViewModel)
         {
             if (ModelState.IsValid)
@@ -57,6 +58,7 @@ namespace CashMachine.Controllers
         }
         
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Recharge(RechargeViewModel rechargeViewModel)
         {
             if (ModelState.IsValid)

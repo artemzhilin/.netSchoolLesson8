@@ -42,10 +42,10 @@ namespace CashMachine.ViewModels.Accounts
         [MaxLength(50, ErrorMessage = "Maximum length is 50 characters")]
         public string State { get; set; }
         
-        [MaxLength(50, ErrorMessage = "Maximum length is 100 characters")]
+        [MaxLength(100, ErrorMessage = "Maximum length is 100 characters")]
         public string Address { get; set; }
 
-        public ClientModel ParseClient()
+        public ClientModel ConvertToClient()
         {
             return new ClientModel
             {

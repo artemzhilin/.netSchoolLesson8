@@ -170,6 +170,7 @@
     <Compile Include="Views\BaseViewPage.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\empty" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -195,7 +196,6 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Views\Accounts\Login.cshtml" />
-    <Content Include="Views\Accounts\Profile.cshtml" />
     <Content Include="Views\Accounts\Registration.cshtml" />
     <Content Include="Views\Operations\Index.cshtml" />
     <Content Include="Views\Operations\Recharge.cshtml" />

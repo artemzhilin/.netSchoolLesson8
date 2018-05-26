@@ -7,7 +7,7 @@ namespace CashMachine.Security
     {
         public static AuthorizationModel GetAuthorizationObject(string cardId)
         {
-            AuthorizationModel authorizationModel = null;
+            AuthorizationModel authorizationModel;
             using (var dbContext = new BankContext())
             {
                 authorizationModel = dbContext.Cards

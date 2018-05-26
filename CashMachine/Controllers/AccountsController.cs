@@ -23,6 +23,7 @@ namespace CashMachine.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel loginViewModel)
         {
             if (ModelState.IsValid)
@@ -52,6 +53,7 @@ namespace CashMachine.Controllers
         }
         
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Registration(RegistrationViewModel registrationViewModel)
         {
             string messageRegistration = string.Empty; 
@@ -59,7 +61,7 @@ namespace CashMachine.Controllers
             {
                 if (!CardsService.CardExists(registrationViewModel.CardID))
                 {
-                    ClientsService.CreateClient(registrationViewModel.ParseClient());
+                    ClientsService.CreateClient(registrationViewModel.ConvertToClient());
                     TempData["statusRegistration"] = true;
                     return RedirectToAction("Login");
                 }
@@ -77,17 +79,11 @@ namespace CashMachine.Controllers
         }
         
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Login");
-        }
-        
-        [HttpGet]
-        [Authorize]
-        public ActionResult Profile()
-        {
-            return View();
         }
     }
 }

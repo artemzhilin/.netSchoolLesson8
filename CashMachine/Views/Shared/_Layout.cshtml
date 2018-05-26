@@ -35,7 +35,7 @@
 
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                                @Html.ActionLink($"Hello {User.CardholderName}!", "Profile", "Accounts", routeValues: null, htmlAttributes: new { title = "Manage" })
+                                <a href="#">Hello, @User.CardholderName</a>
                             </li>
                             <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
                         </ul>
